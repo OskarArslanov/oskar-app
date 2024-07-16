@@ -11,10 +11,12 @@ import { useSelect } from './use-select';
 interface Props {
   options?: string[];
   size?: SizeType;
+  value?: string;
+  onSelect?: (value: string) => void;
 }
 
 export const Select: FC<Props> = (props) => {
-  const { options, size = 'md' } = props;
+  const { options, size = 'md', onSelect, value = '' } = props;
   const { open, containerRef, inputRef, optionsRef, toggleOpen } = useSelect();
 
   return (
@@ -26,10 +28,12 @@ export const Select: FC<Props> = (props) => {
         }
         ref={inputRef}
         onClick={toggleOpen}
+        readOnly
+        value={value}
       />
       <ul className={cn(s.options, { [s.open]: open })} ref={optionsRef}>
         {options?.map((option) => (
-          <li key={option} className={s.option}>
+          <li key={option} className={s.option} onClick={() => onSelect?.(option)}>
             {option}
           </li>
         )) || <li className={s.empty}>No options</li>}

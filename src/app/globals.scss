@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-image: url('../assets/imgs/bg.jpg');
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

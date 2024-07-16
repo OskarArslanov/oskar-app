@@ -1,6 +1,6 @@
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { useToggle } from '@/hooks/use-toggle';
-import { useTooltip } from '@/hooks/use-tooltip';
+import { useClickOutside } from '@/shared/hooks/use-click-outside';
+import { useToggle } from '@/shared/hooks/use-toggle';
+import { useTooltip } from '@/shared/hooks/use-tooltip';
 import { useRef } from 'react';
 
 export const useSelect = () => {

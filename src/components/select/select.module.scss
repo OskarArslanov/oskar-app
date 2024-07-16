@@ -1,4 +1,4 @@
-@use '../../mixins/reset.module.scss' as mixins;
+@use '../../shared/mixins/reset.module.scss' as mixins;
 
 .arrow {
   position: absolute;
@@ -41,9 +41,24 @@
     position: absolute;
     top: 0;
     opacity: 0;
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: white;
 
     &.open {
       opacity: 1;
+    }
+
+    .option {
+      padding: 4px 2px;
+
+      &:hover {
+        background-color: lightgray;
+      }
     }
   }
 }
