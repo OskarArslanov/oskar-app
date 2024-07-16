@@ -1,0 +1,49 @@
+@use '../../mixins/reset.module.scss' as mixins;
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+
+  &.lg {
+    right: 4%;
+    top: 15%;
+    width: 26px;
+    height: 26px;
+  }
+
+  &.md {
+    right: 3%;
+    top: 10%;
+    width: 22px;
+    height: 22px;
+  }
+
+  &.sm {
+    right: 2%;
+    top: 5%;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.component {
+  position: relative;
+  width: fit-content;
+
+  .options {
+    @include mixins.resetUlStyle;
+
+    position: absolute;
+    top: 0;
+    opacity: 0;
+
+    &.open {
+      opacity: 1;
+    }
+  }
+}
