@@ -1,0 +1,13 @@
+.feature {
+  gap: 8px;
+
+  .option {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+
+    &.active {
+      background-color: lightgray;
+    }
+  }
+}

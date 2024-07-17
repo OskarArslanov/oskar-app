@@ -1,12 +1,14 @@
-export enum NavigationEnum {
+export enum NavigationTabsEnum {
   Portfolio = 'portfolio',
   Examples = 'examples',
   Contacts = 'contacts',
   Home = '',
 }
-export const navigationTabs = [
-  { label: 'Главная', href: NavigationEnum.Home },
-  { label: 'Портфолио', href: NavigationEnum.Portfolio },
-  { label: 'Примеры работ', href: NavigationEnum.Examples },
-  { label: 'Контакты', href: NavigationEnum.Contacts },
+const tabs = [
+  { label: 'Главная', href: NavigationTabsEnum.Home },
+  { label: 'Портфолио', href: NavigationTabsEnum.Portfolio },
+  { label: 'Примеры работ', href: NavigationTabsEnum.Examples },
+  { label: 'Контакты', href: NavigationTabsEnum.Contacts },
 ];
+
+export const navigationTabs = tabs.map((tab) => ({ ...tab, href: `/${tab.href}` }));

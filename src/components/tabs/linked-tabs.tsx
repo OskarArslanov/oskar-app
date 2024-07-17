@@ -1,28 +1,31 @@
+'use client';
+
 import { FC, HTMLProps } from 'react';
 import s from './tabs.module.scss';
 import Link from 'next/link';
 import cn from 'classnames';
-import { useSelectedLayoutSegment } from 'next/navigation';
+
+export type TabType = { label: string; href: string };
 
 interface Props extends HTMLProps<HTMLUListElement> {
-  tabs: { label: string; href: string }[];
+  activeTab?: string;
+  tabs: TabType[];
   optionClassname?: string;
   activeOptionClassname?: string;
 }
 
 export const LinkedTabs: FC<Props> = (props) => {
-  const { tabs, optionClassname, className, activeOptionClassname, ...other } = props;
-  const segment = useSelectedLayoutSegment() || '';
+  const { tabs, optionClassname, className, activeOptionClassname, activeTab, ...other } = props;
 
   return (
     <ul className={cn(s.component, className)} {...other}>
       {tabs.map(({ label, href }) => {
-        const isActive = href == segment;
+        const isActive = activeTab === href;
 
         return (
           <Link
             key={label}
-            href={`/` + href}
+            href={href}
             className={cn(s.option, optionClassname, isActive && activeOptionClassname)}
           >
             {label}

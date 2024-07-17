@@ -9,7 +9,6 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>, Pro
 
 const ButtonBase = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const { children, size = 'md', className, ...others } = props;
-
   const classnames = cn(s.component, s[size], className);
 
   return (

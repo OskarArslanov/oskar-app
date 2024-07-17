@@ -5,6 +5,7 @@ import { PropsWithChildren } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Header } from '@/features/header/header';
+import { Body } from '@/features/body/body';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,7 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          {children}
+          <Body>{children}</Body>
         </NextIntlClientProvider>
       </body>
     </html>
