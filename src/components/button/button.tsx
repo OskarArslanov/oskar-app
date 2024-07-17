@@ -7,16 +7,16 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>, Pro
   size?: SizeType;
 }
 
-export const Button = memo(
-  forwardRef<HTMLButtonElement, Props>((props, ref) => {
-    const { children, size = 'md', ...others } = props;
+const ButtonBase = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+  const { children, size = 'md', ...others } = props;
 
-    const classnames = cn(s.component, s[size]);
+  const classnames = cn(s.component, s[size]);
 
-    return (
-      <button ref={ref} className={classnames} {...others}>
-        {children}
-      </button>
-    );
-  }),
-);
+  return (
+    <button ref={ref} className={classnames} {...others}>
+      {children}
+    </button>
+  );
+});
+
+export const Button = memo(ButtonBase);

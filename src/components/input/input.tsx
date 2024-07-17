@@ -7,23 +7,33 @@ interface Props extends Omit<HTMLProps<HTMLInputElement>, 'size'>, PropsWithChil
   size?: SizeType;
   startAdornment?: ReactNode;
   endAdornment?: ReactNode;
+  fullWidth?: boolean;
 }
 
-export const Input = memo(
-  forwardRef<HTMLInputElement, Props>((props, ref) => {
-    const { label, startAdornment, endAdornment, size = 'md', ...other } = props;
-    const classnames = cn(s.input, s[size]);
+export const InputBase = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const {
+    label,
+    startAdornment,
+    endAdornment,
+    size = 'md',
+    fullWidth = false,
+    className,
+    ...other
+  } = props;
 
-    if (startAdornment || endAdornment) {
-      return (
-        <div className={s.component}>
-          {startAdornment}
-          <input ref={ref} {...other} className={classnames} />
-          {endAdornment}
-        </div>
-      );
-    }
+  const classnames = cn(s.input, s[size], fullWidth && s.fullWidth, className);
 
-    return <input ref={ref} {...other} className={classnames} />;
-  }),
-);
+  if (startAdornment || endAdornment) {
+    return (
+      <div className={s.component}>
+        {startAdornment}
+        <input ref={ref} {...other} className={classnames} />
+        {endAdornment}
+      </div>
+    );
+  }
+
+  return <input ref={ref} {...other} className={classnames} />;
+});
+
+export const Input = memo(InputBase);

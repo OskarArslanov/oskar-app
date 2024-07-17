@@ -5,10 +5,16 @@
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 
   .option {
     color: white;
     font-size: 18px;
     font-weight: 500;
+  }
+
+  .select {
+    width: 80px;
   }
 }

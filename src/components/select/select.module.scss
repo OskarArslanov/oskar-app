@@ -35,6 +35,11 @@
   position: relative;
   width: fit-content;
 
+  .input {
+    cursor: pointer;
+    caret-color: transparent;
+  }
+
   .options {
     @include mixins.resetUlStyle;
 
@@ -55,6 +60,7 @@
 
     .option {
       padding: 4px 2px;
+      cursor: pointer;
 
       &:hover {
         background-color: lightgray;

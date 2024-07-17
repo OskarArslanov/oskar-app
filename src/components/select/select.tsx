@@ -4,7 +4,7 @@ import { SizeType } from '@/types/props';
 import { Input } from '../input/input';
 import s from './select.module.scss';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { ArrowIcon } from '../../assets/svg/arrow';
 import { useSelect } from './use-select';
 
@@ -13,10 +13,11 @@ interface Props {
   size?: SizeType;
   value?: string;
   onSelect?: (value: string) => void;
+  inputClassname?: string;
 }
 
-export const Select: FC<Props> = (props) => {
-  const { options, size = 'md', onSelect, value = '' } = props;
+const SelectBase: FC<Props> = (props) => {
+  const { options, size = 'md', onSelect, value = '', inputClassname } = props;
   const { open, containerRef, inputRef, optionsRef, toggleOpen } = useSelect();
 
   return (
@@ -30,6 +31,7 @@ export const Select: FC<Props> = (props) => {
         onClick={toggleOpen}
         readOnly
         value={value}
+        className={cn(s.input, inputClassname)}
       />
       <ul className={cn(s.options, { [s.open]: open })} ref={optionsRef}>
         {options?.map((option) => (
@@ -41,3 +43,5 @@ export const Select: FC<Props> = (props) => {
     </div>
   );
 };
+
+export const Select = memo(SelectBase);

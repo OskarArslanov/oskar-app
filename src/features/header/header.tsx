@@ -22,9 +22,10 @@ export const Header = () => {
         optionClassname={s.option}
       />
       <Select
-        options={[LocaleEnum.ru, LocaleEnum.en]}
+        options={[LocaleEnum.Ru, LocaleEnum.En]}
         value={locale}
         onSelect={handleChangeLocale}
+        inputClassname={s.select}
       />
     </header>
   );
