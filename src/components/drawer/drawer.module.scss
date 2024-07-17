@@ -1,0 +1,44 @@
+$transition-bezier: 0.075, 0.4, 0.465, 1;
+
+.component {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  background-color: white;
+  width: 1px;
+  height: 100vh;
+  justify-content: space-between;
+  transition:
+    width 0.3s cubic-bezier($transition-bezier),
+    opacity 0.3s cubic-bezier($transition-bezier);
+  opacity: 0;
+  z-index: -1;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    width: 0;
+  }
+
+  .button {
+    background-color: white;
+    align-items: center;
+    width: 0;
+    height: 100%;
+
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.isOpen {
+    width: 320px;
+    z-index: 1;
+    opacity: 1;
+
+    .button {
+      width: auto;
+    }
+  }
+}

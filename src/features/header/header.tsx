@@ -4,6 +4,8 @@ import { Select } from '@/components/select/select';
 import { useHeader } from './use-header';
 import { LocaleEnum } from '@/types/locales';
 import { useLocale, useTranslations } from 'next-intl';
+import { Navigation } from './navigation/navigation';
+import { BurgerMenu } from './burger-menu/burger-menu';
 
 export const Header = () => {
   const t = useTranslations('header');
@@ -12,15 +14,8 @@ export const Header = () => {
 
   return (
     <header className={s.feature}>
-      <LinkedTabs
-        tabs={[
-          { label: t('Главная'), href: '/' },
-          { label: t('Портфолио'), href: '/portfolio' },
-          { label: t('Примеры работ'), href: '/examples' },
-          { label: t('Контакты'), href: '/contacts' },
-        ]}
-        optionClassname={s.option}
-      />
+      <BurgerMenu />
+      <Navigation />
       <Select
         options={[LocaleEnum.Ru, LocaleEnum.En]}
         value={locale}

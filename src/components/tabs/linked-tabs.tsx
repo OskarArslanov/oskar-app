@@ -9,10 +9,10 @@ interface Props extends HTMLProps<HTMLUListElement> {
 }
 
 export const LinkedTabs: FC<Props> = (props) => {
-  const { tabs, optionClassname, ...other } = props;
+  const { tabs, optionClassname, className, ...other } = props;
 
   return (
-    <ul className={s.component} {...other}>
+    <ul className={cn(s.component, className)} {...other}>
       {tabs.map(({ label, href }) => (
         <Link key={label} href={href} className={cn(s.option, optionClassname)}>
           {label}

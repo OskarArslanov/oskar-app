@@ -53,9 +53,11 @@
     flex-direction: column;
     gap: 2px;
     background-color: white;
+    z-index: -1;
 
     &.open {
       opacity: 1;
+      z-index: 1;
     }
 
     .option {
