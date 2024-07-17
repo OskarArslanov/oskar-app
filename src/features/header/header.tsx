@@ -1,4 +1,5 @@
-import { LinkedTabs } from '@/components/tabs/linked-tabs';
+'use client'; 
+
 import s from './header.module.scss';
 import { Select } from '@/components/select/select';
 import { useHeader } from './use-header';

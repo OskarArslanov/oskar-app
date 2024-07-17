@@ -16,10 +16,10 @@ const DrawerBase: FC<Props> = (props) => {
   return (
     <div className={cn(s.component, isOpen && s.isOpen)}>
       <ul className={s.list}>{children}</ul>
-      <Button className={s.button} onClick={onClose}>
+      <Button id={s['drawer-close-button']} onClick={onClose}>
         <ArrowIcon height={16} width={16} className={s.arrow} />
       </Button>
-      <Backdrop isOpen={isOpen} id='drawer' />
+      <Backdrop isOpen={isOpen} id="drawer" />
     </div>
   );
 };

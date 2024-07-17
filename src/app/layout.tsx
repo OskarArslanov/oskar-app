@@ -4,6 +4,7 @@ import './globals.scss';
 import { PropsWithChildren } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { Header } from '@/features/header/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,10 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

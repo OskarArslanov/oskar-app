@@ -18,13 +18,12 @@ $transition-bezier: 0.075, 0.4, 0.465, 1;
   .list {
     display: flex;
     flex-direction: column;
-    width: 0;
+    width: 100%;
   }
 
-  .button {
+  #drawer-close-button {
     background-color: white;
     align-items: center;
-    width: 0;
     height: 100%;
 
     .arrow {

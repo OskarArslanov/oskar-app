@@ -1,5 +1,11 @@
 .feature {
   .link {
     text-wrap: nowrap;
+    width: 100%;
+    transition: font-weight 0.3s;
+
+    &.active {
+      font-weight: 600;
+    }
   }
 }

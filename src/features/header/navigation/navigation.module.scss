@@ -2,6 +2,12 @@
   color: white;
   font-size: 18px;
   font-weight: 500;
+
+  &.active {
+    font-weight: 700;
+    color: black;
+    background-color: lightgray;
+  }
 }
 
 .vertical {
