@@ -6,13 +6,13 @@ import { Drawer } from '@/components/drawer/drawer';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useBurgerMenu } from './use-burger-menu';
-import { usePathname } from 'next/navigation';
 import { navigationTabs } from '@/routes/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 export const BurgerMenu = () => {
   const t = useTranslations('header');
   const { isOpen, ref, toggle } = useBurgerMenu();
-  const pathname = usePathname();
+  const activeLinkedTab = '/' + (useSelectedLayoutSegment() || '');
 
   return (
     <div className={cn(s.feature, 'hide__L', 'hide__XL')} ref={ref}>
@@ -21,7 +21,7 @@ export const BurgerMenu = () => {
       </Button>
       <Drawer isOpen={isOpen} onClose={toggle}>
         {navigationTabs.map(({ href, label }) => {
-          const isActive = href === pathname;
+          const isActive = href === activeLinkedTab;
 
           return (
             <Link key={label} href={href} className={cn(s.link, isActive && s.active)}>

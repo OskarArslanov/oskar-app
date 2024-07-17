@@ -2,16 +2,15 @@ import { LinkedTabs } from '@/components/tabs/linked-tabs';
 import { useTranslations } from 'next-intl';
 import s from './navigation.module.scss';
 import { navigationTabs } from '@/routes/navigation';
-import { useSelectedLayoutSegments } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 export const Navigation = () => {
   const t = useTranslations('header');
-
-  const activeNevigationTab = useSelectedLayoutSegments()[0] || '';
+  const activeLinkedTab = '/' + (useSelectedLayoutSegment() || '');
 
   return (
     <LinkedTabs
-      activeTab={'/' + activeNevigationTab}
+      activeTab={activeLinkedTab}
       tabs={navigationTabs.map((item) => ({ ...item, label: t(item.label) }))}
       optionClassname={s.option}
       activeOptionClassname={s.active}

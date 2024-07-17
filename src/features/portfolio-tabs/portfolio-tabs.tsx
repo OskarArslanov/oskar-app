@@ -6,11 +6,11 @@ import { portfolioTabs } from '@/routes/portfolio';
 import { usePathname } from 'next/navigation';
 
 export const PortfolioTabs = () => {
-  const pathname = usePathname();
+  const activeLinkedTab = usePathname();
 
   return (
     <LinkedTabs
-      activeTab={pathname}
+      activeTab={activeLinkedTab}
       tabs={portfolioTabs}
       className={s.feature}
       activeOptionClassname={s.active}
