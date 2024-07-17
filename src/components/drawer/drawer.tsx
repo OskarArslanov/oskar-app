@@ -19,7 +19,7 @@ const DrawerBase: FC<Props> = (props) => {
       <Button className={s.button} onClick={onClose}>
         <ArrowIcon height={16} width={16} className={s.arrow} />
       </Button>
-      <Backdrop isOpen={isOpen} />
+      <Backdrop isOpen={isOpen} id='drawer' />
     </div>
   );
 };

@@ -3,23 +3,30 @@ import s from './backdrop.module.scss';
 
 interface Props {
   isOpen: boolean;
+  id: string;
 }
 
-const BackdropBase: FC<Props> = ({ isOpen }) => {
+const BackdropBase: FC<Props> = ({ isOpen, id }) => {
+  const backdropId = `backdrop-${id}`;
   useEffect(() => {
     const backdrop = document.createElement('div');
     backdrop.className = s.component;
-    document.body.appendChild(backdrop);
-  }, []);
+    backdrop.id = backdropId;
+    document.body.append(backdrop);
+
+    return () => {
+      backdrop.remove();
+    };
+  }, [backdropId]);
 
   useEffect(() => {
-    const backdrop = document.querySelector(`.${s.component}`);
+    const backdrop = document.getElementById(backdropId);
     if (isOpen) {
       backdrop?.classList.add(s.isOpen);
     } else {
       backdrop?.classList.remove(s.isOpen);
     }
-  }, [isOpen]);
+  }, [backdropId, isOpen]);
 
   return null;
 };
