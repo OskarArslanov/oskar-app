@@ -21,6 +21,7 @@ export const Header = () => {
         value={locale}
         onSelect={handleChangeLocale}
         inputClassname={s.select}
+        closeOnSelect
       />
     </header>
   );

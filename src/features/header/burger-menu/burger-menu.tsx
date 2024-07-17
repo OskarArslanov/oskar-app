@@ -7,13 +7,14 @@ import { useTranslations } from 'next-intl';
 import { navigationTabs } from '../consts';
 import Link from 'next/link';
 import { useToggle } from '@/shared/hooks/use-toggle';
+import { useBurgerMenu } from './use-burger-menu';
 
 export const BurgerMenu = () => {
-  const [isOpen, toggle] = useToggle();
   const t = useTranslations('header');
+  const { isOpen, ref, toggle } = useBurgerMenu();
 
   return (
-    <div className={cn(s.feature, 'hide__L', 'hide__XL')}>
+    <div className={cn(s.feature, 'hide__L', 'hide__XL')} ref={ref}>
       <Button onClick={toggle}>
         <BurgerMenuIcon height={16} width={16} />
       </Button>

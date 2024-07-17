@@ -10,7 +10,7 @@ export const useSelect = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  useClickOutside(inputRef, () => setOpen(false));
+  useClickOutside(containerRef, () => setOpen(false));
   useTooltip({ targetRef: inputRef, tooltipRef: optionsRef, pos: 'bottom', tooltipGap: 4 });
 
   return { inputRef, optionsRef, containerRef, open, toggleOpen };

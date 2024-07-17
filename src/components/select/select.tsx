@@ -14,10 +14,11 @@ interface Props {
   value?: string;
   onSelect?: (value: string) => void;
   inputClassname?: string;
+  closeOnSelect?: boolean;
 }
 
 const SelectBase: FC<Props> = (props) => {
-  const { options, size = 'md', onSelect, value = '', inputClassname } = props;
+  const { options, size = 'md', onSelect, value = '', inputClassname, closeOnSelect } = props;
   const { open, containerRef, inputRef, optionsRef, toggleOpen } = useSelect();
 
   return (
@@ -35,7 +36,14 @@ const SelectBase: FC<Props> = (props) => {
       />
       <ul className={cn(s.options, { [s.open]: open })} ref={optionsRef}>
         {options?.map((option) => (
-          <li key={option} className={s.option} onClick={() => onSelect?.(option)}>
+          <li
+            key={option}
+            className={s.option}
+            onClick={() => {
+              closeOnSelect && toggleOpen();
+              onSelect?.(option);
+            }}
+          >
             {option}
           </li>
         )) || <li className={s.empty}>No options</li>}
