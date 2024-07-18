@@ -16,8 +16,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/portfolio',
-        destination: '/portfolio/ui',
+        source: '/examples',
+        destination: '/examples/ui',
         permanent: true,
       },
     ];

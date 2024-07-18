@@ -1,17 +1,17 @@
 'use client';
 
 import { LinkedTabs } from '@/components/tabs/linked-tabs';
-import s from './portfolio-tabs.module.scss';
-import { portfolioTabs } from '@/routes/portfolio';
+import s from './examples-tabs.module.scss';
 import { usePathname } from 'next/navigation';
+import { examplesTabs } from '@/routes/examples';
 
-export const PortfolioTabs = () => {
+export const ExamplesTabs = () => {
   const activeLinkedTab = usePathname();
 
   return (
     <LinkedTabs
       activeTab={activeLinkedTab}
-      tabs={portfolioTabs}
+      tabs={examplesTabs}
       className={s.feature}
       activeOptionClassname={s.active}
       optionClassname={s.option}
